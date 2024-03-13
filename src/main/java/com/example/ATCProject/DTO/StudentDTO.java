@@ -21,6 +21,5 @@ public class StudentDTO {
     private Long userId;
 
 
-
     private Long collegeId;
 }
