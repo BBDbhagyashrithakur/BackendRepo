@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/collage")
+@RequestMapping("/placementofficer")
 public class PlacementOfficerController {
-    @PostMapping("/addtpo/{collageId}")
+    @PostMapping("/add")
     public PlacementOfficerDTO addplacementofficer(@RequestBody PlacementOfficerDTO placementOfficerDTO){
         return  new PlacementOfficerDTO();
     }
