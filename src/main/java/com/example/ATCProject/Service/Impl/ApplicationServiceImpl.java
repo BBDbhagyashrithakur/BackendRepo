@@ -9,28 +9,28 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ApplicationServiceImpl extends ApplicationService {
+public class ApplicationServiceImpl {
 
     @Autowired
     private ApplicationRepo applicationRepository;
 
-    @Override
+
     public List<Application> getAllApplications() {
         return applicationRepository.findAll();
     }
 
-    @Override
+
     public Application getApplicationById(Long id) {
         Optional<Application> optionalApplication = applicationRepository.findById(id);
         return optionalApplication.orElse(null);
     }
 
-    @Override
+
     public Application createApplication(Application application) {
         return applicationRepository.save(application);
     }
 
-    @Override
+
     public Application updateApplication(Long id, Application application) {
         Optional<Application> optionalApplication = applicationRepository.findById(id);
         if (optionalApplication.isPresent()) {
@@ -39,5 +39,6 @@ public class ApplicationServiceImpl extends ApplicationService {
         } else {
             return null; // Or throw an exception if needed
         }
-    }}
+    }
+}
 

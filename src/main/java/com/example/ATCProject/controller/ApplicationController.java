@@ -1,5 +1,6 @@
 package com.example.ATCProject.controller;
 
+import com.example.ATCProject.Service.Impl.ApplicationServiceImpl;
 import com.example.ATCProject.model.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("/applications")
 public class ApplicationController {
     @Autowired
-    private ApplicationService applicationService;
+    private ApplicationServiceImpl applicationService;
 
     @GetMapping("/all")
     public List<Application> getAllApplications() {
@@ -47,11 +48,6 @@ public class ApplicationController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteApplication(@PathVariable Long id) {
-        boolean deleted = applicationService.deleteApplication(id);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }

@@ -21,7 +21,7 @@ public class User_data {
     @Column( name ="last_name",nullable = false)
     private String last_name;
     @Column( name ="user_email",nullable = false)
-    private String user_email;
+    private String email;
     @Column( name ="mobile_number")
     private String mobile_number;
 }

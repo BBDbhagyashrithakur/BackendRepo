@@ -37,8 +37,7 @@ public class StudentService {
         s.setResume(studentDTO.getResume());
         Student save = studentRepo.save(s);
 
-        StudentDTO s1=new StudentDTO(save.getStudent_Id(),save.getResume(),save.getUser_Id().getUser_Id(),save.getCollege().getCollege_Id());
-
+        return new StudentDTO(save.getStudent_Id(),save.getResume(),save.getUser_Id().getUser_Id(),save.getCollege().getCollege_Id());
 
     }
 }

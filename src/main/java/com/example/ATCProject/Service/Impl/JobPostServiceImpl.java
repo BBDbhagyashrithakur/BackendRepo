@@ -14,24 +14,24 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class JobPostServiceImpl implements JobPostService {
+public class JobPostServiceImpl  {
     @Autowired
     private JobPostRepo jobPostRepository;
     @Autowired
     private CompanyRepo companyRepo;
 
-    @Override
+
     public List<JobPost> getAllJobPosts() {
         return jobPostRepository.findAll();
     }
 
-    @Override
+
     public JobPost getJobPostById(Long id) {
         Optional<JobPost> optionalJobPost = jobPostRepository.findById(id);
         return optionalJobPost.orElse(null);
     }
 
-    @Override
+
     public JobPost createJobPost(JobPostDTO jobPost) {
         Optional<Company> byId = companyRepo.findById(jobPost.getCompany_id());
         if(byId.isEmpty()){
@@ -48,7 +48,7 @@ public class JobPostServiceImpl implements JobPostService {
 
     }
 
-    @Override
+
     public JobPost updateJobPost(Long id, JobPost jobPost) {
         Optional<JobPost> optionalJobPost = jobPostRepository.findById(id);
         if (optionalJobPost.isPresent()) {
@@ -59,7 +59,7 @@ public class JobPostServiceImpl implements JobPostService {
         }
     }
 
-    @Override
+
     public boolean deleteJobPost(Long id) {
         Optional<JobPost> optionalJobPost = jobPostRepository.findById(id);
         if (optionalJobPost.isPresent()) {

@@ -1,5 +1,6 @@
 package com.example.ATCProject.controller;
 import com.example.ATCProject.DTO.JobPostDTO;
+import com.example.ATCProject.Service.Impl.JobPostServiceImpl;
 import com.example.ATCProject.model.JobPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("/jobPosts")
 public class JobPostController {
     @Autowired
-    private JobPostService jobPostService;
+    private JobPostServiceImpl jobPostService;
 
     @GetMapping("/all")
     public List<JobPost> getAllJobPosts() {

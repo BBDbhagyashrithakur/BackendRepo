@@ -30,7 +30,6 @@ public class Application {
     @ManyToOne
     @JoinColumn(name = "student_Id")
     private Student student;
-    @OneToOne
-    private int id;
+
 
 }
