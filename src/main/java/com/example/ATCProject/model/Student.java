@@ -3,6 +3,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.time.LocalDateTime.now;
 
 @Data
@@ -28,4 +31,8 @@ public class Student {
     @JoinColumn(name = "college_id")
     @JsonIgnore
     private College college;
+
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    private List<Application> application=new ArrayList<>();
+
 }

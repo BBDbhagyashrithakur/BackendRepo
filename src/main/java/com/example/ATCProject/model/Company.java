@@ -34,5 +34,7 @@ public class Company {
     @ManyToOne
     @JsonIgnore
     private Company_type company_type;
+    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
+    private List<JobPost> jobPosts=new ArrayList<>();
 
 }

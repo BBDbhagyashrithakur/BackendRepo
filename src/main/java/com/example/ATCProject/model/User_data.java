@@ -28,9 +28,10 @@ public class User_data {
     private LocalDateTime created_date;
     @Column( name ="modified_date")
     private Date modified_date;
-//    @OneToOne(mappedBy = "User_Id")
-//    private student stud;
-//    @OneToOne(mappedBy = "User_Id")
-//    private placementOfficer placementOfficer;
+
+//    @OneToOne(mappedBy = "user_Id")
+//    private Student stud;
+//    @OneToOne(mappedBy = "user_Id")
+//    private PlacementOfficer placementOfficer;
 
 }

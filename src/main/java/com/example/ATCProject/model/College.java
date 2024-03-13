@@ -28,13 +28,14 @@ public class College {
     @Column( name ="modified_date")
     private Date modified_date;
     @ManyToOne
+    @JoinColumn(name="institute_Id")
     @JsonIgnore
     private Institute_Type institute_type;
 
     @OneToMany
     private List<Student>students=new ArrayList<>();
 
-    @ManyToOne
+    @OneToMany(mappedBy = "college",cascade = CascadeType.ALL)
     @JsonIgnore
-    private PlacementOfficer placementOfficer;
+    private List<PlacementOfficer> placementOfficer=new ArrayList<>();
 }
