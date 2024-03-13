@@ -23,10 +23,6 @@ public class Application {
     private Long application_Id;
     @Column( name ="date_applied",nullable = false)
     private String date_applied;
-    @Column( name ="created_date")
-    private LocalDateTime created_date;
-    @Column( name ="modified_date")
-    private Date modified_date;
     @ManyToOne
     @JoinColumn(name="jobPost_id")
     @JsonIgnore
@@ -35,14 +31,6 @@ public class Application {
     @JoinColumn(name = "student_Id")
     private Student student;
     @OneToOne
-    Application_Status applicationStatus;
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name="PlacementOfficer_Id")
-    private PlacementOfficer placementOfficer;
-
-    public Application() {
-
-    }
+    private int id;
 
 }

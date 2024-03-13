@@ -2,10 +2,7 @@ package com.example.ATCProject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 public class JobPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,18 +38,10 @@ public class JobPost {
     @JoinColumn(name = "company_Id")
     private Company company;
 
-    @OneToMany(mappedBy = "jobPost",cascade = CascadeType.ALL)
-    private List<PlacementOfficer>placementOfficers=new ArrayList<>();
 
 
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name="skill_Id")
-    private Skills skills;
 
-//    @ManyToOne
-//    @JsonIgnore
-//    @JoinColumn(name = "company_Id")
-//    private Company companies;
+
+
 }

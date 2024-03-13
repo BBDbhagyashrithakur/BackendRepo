@@ -1,11 +1,15 @@
 package com.example.ATCProject.Service.Impl;
 
+import com.example.ATCProject.DTO.JobPostDTO;
+import com.example.ATCProject.Repository.CompanyRepo;
 import com.example.ATCProject.Repository.JobPostRepo;
-import com.example.ATCProject.Service.JobPostService;
+import com.example.ATCProject.model.Company;
 import com.example.ATCProject.model.JobPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +17,8 @@ import java.util.Optional;
 public class JobPostServiceImpl implements JobPostService {
     @Autowired
     private JobPostRepo jobPostRepository;
+    @Autowired
+    private CompanyRepo companyRepo;
 
     @Override
     public List<JobPost> getAllJobPosts() {
@@ -26,8 +32,20 @@ public class JobPostServiceImpl implements JobPostService {
     }
 
     @Override
-    public JobPost createJobPost(JobPost jobPost) {
-        return jobPostRepository.save(jobPost);
+    public JobPost createJobPost(JobPostDTO jobPost) {
+        Optional<Company> byId = companyRepo.findById(jobPost.getCompany_id());
+        if(byId.isEmpty()){
+            System.out.println("compnay is not present ");
+            return null;
+        }
+        JobPost j =new JobPost();
+        j.setJob_location(jobPost.getJob_location());
+        j.setCompany(byId.get());
+        j.setModified_date(new Date());
+        j.setCreated_date(LocalDateTime.now());
+        jobPostRepository.save(j);
+        return  null;
+
     }
 
     @Override

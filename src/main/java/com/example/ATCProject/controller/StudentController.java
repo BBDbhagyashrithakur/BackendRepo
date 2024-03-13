@@ -1,12 +1,13 @@
 package com.example.ATCProject.controller;
 
-import com.example.ATCProject.Service.StudentService;
+import com.example.ATCProject.DTO.StudentDTO;
 import com.example.ATCProject.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class StudentController {
 
     @GetMapping("/all")
     public List<Student> getAllStudents() {
-        return studentService.getAllStudents();
+        return new ArrayList<>();
     }
 
     @GetMapping("/{id}")
@@ -31,9 +32,9 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Student> createStudent(@RequestBody Student student) {
-        Student createdStudent = studentService.createStudent(student);
-        return new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
+    public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
+
+        return new ResponseEntity<>(new StudentDTO(), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

@@ -25,7 +25,7 @@ public class PlacementOfficer {
     @JsonIgnore
     @JoinColumn(name = "jobPost_id")
     private JobPost jobPost;
-    @OneToMany(mappedBy = "placementOfficer",cascade = CascadeType.ALL)
-    private List<Application>applications=new ArrayList<>();
+    @OneToMany
+    private List<JobPost> jobPosts=new ArrayList<>();
 
 }

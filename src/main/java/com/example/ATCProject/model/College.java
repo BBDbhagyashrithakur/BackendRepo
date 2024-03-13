@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
 @AllArgsConstructor
 public class College {
     @Id
@@ -24,13 +26,6 @@ public class College {
     @Column( name ="phone_no",nullable = false)
     private String phone_no;
     @Column( name ="created_date")
-    private LocalDateTime created_date;
-    @Column( name ="modified_date")
-    private Date modified_date;
-    @ManyToOne
-    @JoinColumn(name="institute_Id")
-    @JsonIgnore
-    private Institute_Type institute_type;
 
     @OneToMany
     private List<Student>students=new ArrayList<>();

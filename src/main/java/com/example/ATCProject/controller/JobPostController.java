@@ -1,5 +1,5 @@
 package com.example.ATCProject.controller;
-import com.example.ATCProject.Service.JobPostService;
+import com.example.ATCProject.DTO.JobPostDTO;
 import com.example.ATCProject.model.JobPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +30,7 @@ public class JobPostController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<JobPost> createJobPost(@RequestBody JobPost jobPost) {
+    public ResponseEntity<JobPost> createJobPost(@RequestBody JobPostDTO jobPost) {
         JobPost createdJobPost = jobPostService.createJobPost(jobPost);
         return new ResponseEntity<>(createdJobPost, HttpStatus.CREATED);
     }

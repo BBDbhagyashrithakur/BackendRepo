@@ -24,14 +24,4 @@ public class User_data {
     private String user_email;
     @Column( name ="mobile_number")
     private String mobile_number;
-    @Column( name ="created_date")
-    private LocalDateTime created_date;
-    @Column( name ="modified_date")
-    private Date modified_date;
-
-//    @OneToOne(mappedBy = "user_Id")
-//    private Student stud;
-//    @OneToOne(mappedBy = "user_Id")
-//    private PlacementOfficer placementOfficer;
-
 }

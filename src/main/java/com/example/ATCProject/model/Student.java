@@ -22,10 +22,6 @@ public class Student {
     @OneToOne
     private User_data User_Id;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    @JsonIgnore
-    private Department department_id;
 
     @ManyToOne
     @JoinColumn(name = "college_id")

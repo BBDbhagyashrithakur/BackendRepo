@@ -20,12 +20,5 @@ public class Application_Status {
     private Long status_Id;
     @Column( name ="status")
     private String status;
-    @Column( name ="created_date")
-    private LocalDateTime created_date;
-    @Column( name ="modified_date")
-    private Date modified_date;
-    @OneToMany(mappedBy = "applicationStatus",cascade = CascadeType.ALL)
-    private List<Application>applications=new ArrayList<>();
-
 
 }
