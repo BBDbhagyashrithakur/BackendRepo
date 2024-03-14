@@ -56,5 +56,5 @@ jobs:
             sudo docker ps -q --filter "publish=8085" | xargs -r sudo docker rm
             sudo docker stop internshipforall || true # Stop all running containers, ignore errors if there are none
             sudo docker rm internshipforall || true    # Remove all containers, ignore errors if there are none
-            sudo docker pull vm2124/internshipforall
-            sudo docker run -d -p 8085:8085 vm2124/internshipforall
+            sudo docker pull bhagyashri01/internshipforall
+            sudo docker run -d -p 8085:8085 bhagyashri01/internshipforall
