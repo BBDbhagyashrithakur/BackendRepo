@@ -20,14 +20,14 @@ public class ApplicationServiceImpl {
     private ApplicationRepo applicationRepository;
 
 
-    public List<Application> getAllApplications() {
+    public List<ApplicationDTO> getAllApplications() {
 
         List<Application> list = applicationRepository.findAll();
-        List<Application> applications = new ArrayList<>();
+        List<ApplicationDTO> applicationsDTO = new ArrayList<>();
         for (Application l : list) {
-            applications.add(modelMapper.map(l, Application.class));
+            applicationsDTO.add(modelMapper.map(l, ApplicationDTO.class));
         }
-        return applications;
+        return applicationsDTO;
     }
 
 

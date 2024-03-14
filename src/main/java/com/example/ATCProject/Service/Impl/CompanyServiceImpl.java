@@ -15,7 +15,7 @@ public class CompanyServiceImpl {
     private CompanyRepo companyRepository;
 @Autowired
 private ModelMapper modelMapper;
-    // Create a new company
+
     public CompanyDTO createCompany(CompanyDTO companyDTO) {
         Company company =Company.builder()
                 .company_name(companyDTO.getCompanyName())
@@ -26,7 +26,7 @@ private ModelMapper modelMapper;
         return companyDTO;
     }
 
-    // Get all companies
+
     public List<CompanyDTO> getAllCompanies() {
         List<Company> companies = companyRepository.findAll();
         List<CompanyDTO> companyDTOs = new ArrayList<>();
@@ -36,16 +36,16 @@ private ModelMapper modelMapper;
         return companyDTOs;
     }
 
-    // Get company by ID
+
     public CompanyDTO getCompanyById(int companyId) {
         Company company = companyRepository.findById(companyId).orElse(null);
         if (company != null) {
             return modelMapper.map(company,CompanyDTO.class);
         }
-        return null; // Or throw exception if company not found
+        return null;
     }
 
-    // Update company
+
     public CompanyDTO updateCompany(int companyId, CompanyDTO companyDTO) {
         Company existingCompany = companyRepository.findById(companyId).orElse(null);
         if (existingCompany != null) {
@@ -57,10 +57,10 @@ private ModelMapper modelMapper;
 
             return modelMapper.map(existingCompany,CompanyDTO.class);
         }
-        return null; // Or throw exception if company not found
+        return null;
     }
 
-    // Delete company
+
     public String deleteCompany(int companyId) {
         companyRepository.deleteById(companyId);
         return "Company is deleted";

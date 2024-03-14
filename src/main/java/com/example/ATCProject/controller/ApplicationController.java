@@ -17,7 +17,7 @@ public class ApplicationController {
     private ApplicationServiceImpl applicationService;
 
     @GetMapping("/all")
-    public List<Application> getAllApplications() {
+    public List<ApplicationDTO> getAllApplications() {
         return applicationService.getAllApplications();
     }
 
