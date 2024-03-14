@@ -5,7 +5,7 @@ WORKDIR /app
 # Copy the compiled Spring Boot JAR file into the container
 COPY target/*.jar app.jar
 # Expose the port your Spring Boot application listens on (default is 8080)
-EXPOSE 8081
+EXPOSE 8085
 
 # Specify the command to run your Spring Boot application
 CMD ["java", "-jar", "app.jar"]
