@@ -1,4 +1,4 @@
-package com.example.ATCProject.model;
+package com.example.ATCProject.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Data
+
 @Entity
 @AllArgsConstructor
 @Getter
@@ -30,7 +30,7 @@ public class JobPost {
     @Column( name ="modified_date")
     private Date modified_date;
 
-    @OneToMany(mappedBy = "jobPost_id",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "jobpost",cascade = CascadeType.ALL)
     private List<Application> applications=new ArrayList<>();
 
     @ManyToOne
