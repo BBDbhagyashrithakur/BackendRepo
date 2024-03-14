@@ -1,34 +1,40 @@
 package com.example.ATCProject.controller;
 
 import com.example.ATCProject.DTO.CompanyDTO;
-import com.example.ATCProject.model.Company;
+import com.example.ATCProject.Service.Impl.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/companies")
 public class CompanyController {
+    @Autowired
+    private CompanyServiceImpl companyService;
 
-    @PostMapping("/add")
-    public ResponseEntity<CompanyDTO>addCompanyType(@RequestBody CompanyDTO companyDTO)
-    {
+    @PostMapping("/create")
+    public CompanyDTO createCompany(@RequestBody CompanyDTO companyDTO) {
+        return companyService.createCompany(companyDTO);
+    }
 
-        return new  ResponseEntity<>(new CompanyDTO(), HttpStatus.CREATED);
-    }
-    @GetMapping("/{id}")
-    public ResponseEntity<CompanyDTO>addCompanyType(@PathVariable Long id)
-    {
-        return new  ResponseEntity<>(new CompanyDTO(), HttpStatus.CREATED);
-    }
     @GetMapping("/all")
-    public  ResponseEntity<List<Company>>GetAll()
-    {
+    public List<CompanyDTO> getAllCompanies() {
+        return companyService.getAllCompanies();
+    }
 
-        return   new ResponseEntity<>(new ArrayList<>(),HttpStatus.CREATED);
+    @GetMapping("/{id}")
+    public CompanyDTO getCompanyById(@PathVariable int id) {
+        return companyService.getCompanyById(id);
+    }
+
+    @PutMapping("/{id}")
+    public CompanyDTO updateCompany(@PathVariable int id, @RequestBody CompanyDTO companyDTO) {
+        return companyService.updateCompany(id, companyDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteCompany(@PathVariable int id) {
+        return companyService.deleteCompany(id);
     }
 }

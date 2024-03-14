@@ -1,16 +1,17 @@
 package com.example.ATCProject.controller;
 
+import com.example.ATCProject.DTO.ApplicationDTO;
+import com.example.ATCProject.Entity.Application;
 import com.example.ATCProject.Service.Impl.ApplicationServiceImpl;
-import com.example.ATCProject.model.Application;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
 @RestController
-@RequestMapping("/applications")
+@RequestMapping("/application")
 public class ApplicationController {
     @Autowired
     private ApplicationServiceImpl applicationService;
@@ -21,33 +22,10 @@ public class ApplicationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Application> getApplicationById(@PathVariable Long id) {
-        Application application = applicationService.getApplicationById(id);
-        if (application != null) {
-            return new ResponseEntity<>(application, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ApplicationDTO getApplicationById(@PathVariable int id) {
+        return applicationService.getApplicationById(id);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Application> createApplication(@RequestBody Application application) {
-        Application createdApplication = applicationService.createApplication(application);
-        return new ResponseEntity<>(createdApplication, HttpStatus.CREATED);
-    }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Application> updateApplication(@PathVariable Long id, @RequestBody Application application) {
-        Application updatedApplication = applicationService.updateApplication(id, application);
-        if (updatedApplication != null) {
-            return new ResponseEntity<>(updatedApplication, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteApplication(@PathVariable Long id) {
-       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
 }
