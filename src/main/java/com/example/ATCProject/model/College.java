@@ -25,7 +25,6 @@ public class College {
     private String email;
     @Column( name ="phone_no",nullable = false)
     private String phone_no;
-    @Column( name ="created_date")
 
     @OneToMany
     private List<Student>students=new ArrayList<>();

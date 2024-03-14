@@ -17,20 +17,14 @@ import java.util.Optional;
 public class JobPostServiceImpl  {
     @Autowired
     private JobPostRepo jobPostRepository;
-    @Autowired
     private CompanyRepo companyRepo;
-
-
     public List<JobPost> getAllJobPosts() {
         return jobPostRepository.findAll();
     }
-
-
     public JobPost getJobPostById(Long id) {
         Optional<JobPost> optionalJobPost = jobPostRepository.findById(id);
         return optionalJobPost.orElse(null);
     }
-
 
     public JobPost createJobPost(JobPostDTO jobPost) {
         Optional<Company> byId = companyRepo.findById(jobPost.getCompany_id());

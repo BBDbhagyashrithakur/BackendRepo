@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ApplicationServiceImpl {
+public class ApplicationServiceImpl  {
 
     @Autowired
     private ApplicationRepo applicationRepository;
@@ -37,8 +37,7 @@ public class ApplicationServiceImpl {
             application.setApplication_Id(id);
             return applicationRepository.save(application);
         } else {
-            return null; // Or throw an exception if needed
+            return null;
         }
-    }
-}
+    }}
 

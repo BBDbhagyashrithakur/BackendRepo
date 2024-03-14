@@ -1,10 +1,14 @@
 package com.example.ATCProject.Service.Impl;
 
 
+import com.example.ATCProject.DTO.UserDTO;
 import com.example.ATCProject.Repository.UserRepository;
+import com.example.ATCProject.model.Student;
 import com.example.ATCProject.model.User_data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl {
@@ -19,4 +23,5 @@ public class UserServiceImpl {
         return userRepository.save(userData);
 
 }
+
 }

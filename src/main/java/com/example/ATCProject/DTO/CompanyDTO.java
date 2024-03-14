@@ -15,17 +15,5 @@ public class CompanyDTO {
     private String phone_no;
     private  Long company_type;
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class UserDTO {
-        private Long user_Id;
-        private  String first_name;
-        private  String last_name;
-        private  String user_email;
-        private  String mobile_number;
 
-
-    }
 }

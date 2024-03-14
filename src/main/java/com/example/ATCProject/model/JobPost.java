@@ -38,10 +38,4 @@ public class JobPost {
     @JoinColumn(name = "company_Id")
     private Company company;
 
-
-
-
-
-
-
 }

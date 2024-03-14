@@ -10,7 +10,9 @@ import com.example.ATCProject.model.User_data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
@@ -28,7 +30,7 @@ public class StudentService {
         }
         Optional<College> byId1 = collageRepo.findById(studentDTO.getCollegeId());
         if(byId1.isEmpty()){
-            System.out.println("user not available");
+            System.out.println("college not available");
             return null;
         }
         Student s=new Student();
@@ -40,4 +42,6 @@ public class StudentService {
         return new StudentDTO(save.getStudent_Id(),save.getResume(),save.getUser_Id().getUser_Id(),save.getCollege().getCollege_Id());
 
     }
+
+
 }

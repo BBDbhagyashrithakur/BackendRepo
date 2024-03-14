@@ -6,11 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 @Getter
 @Setter
@@ -22,7 +19,11 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long application_Id;
     @Column( name ="date_applied",nullable = false)
-    private String date_applied;
+    private Date date_applied;
+
+    public Application() {
+    }
+
     @ManyToOne
     @JoinColumn(name="jobPost_id")
     @JsonIgnore
@@ -30,6 +31,5 @@ public class Application {
     @ManyToOne
     @JoinColumn(name = "student_Id")
     private Student student;
-
 
 }

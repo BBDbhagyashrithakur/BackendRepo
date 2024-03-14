@@ -1,5 +1,6 @@
 package com.example.ATCProject.DTO;
 
+import com.example.ATCProject.model.College;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,4 +15,7 @@ public class CollegeDTO {
     private String college_name;
     private String email;
     private String phone_no;
+
+    public CollegeDTO(College college) {
+    }
 }
