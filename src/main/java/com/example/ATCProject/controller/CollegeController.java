@@ -21,6 +21,7 @@ public class CollegeController {
 
     @GetMapping("/{id}")
     public CollegeDTO findCollegeById(@PathVariable int id) {
+
         return collageService.findCollegeById(id);
     }
 

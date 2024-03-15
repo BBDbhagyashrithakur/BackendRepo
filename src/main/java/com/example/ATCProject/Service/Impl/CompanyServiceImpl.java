@@ -5,6 +5,7 @@ import com.example.ATCProject.Entity.Company;
 import com.example.ATCProject.Repository.CompanyRepo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,33 +17,34 @@ public class CompanyServiceImpl {
 @Autowired
 private ModelMapper modelMapper;
 
-    public CompanyDTO createCompany(CompanyDTO companyDTO) {
+    public Company createCompany(CompanyDTO companyDTO) {
         Company company =Company.builder()
                 .company_name(companyDTO.getCompanyName())
                 .email(companyDTO.getEmail())
-                .phone_no(companyDTO.getCompanyName())
+                .phone_no(companyDTO.getPhoneNumber())
                 .build();
-        companyRepository.save(company);
-        return companyDTO;
+
+        return companyRepository.save(company);
     }
 
 
-    public List<CompanyDTO> getAllCompanies() {
+    public List<Company> getAllCompanies() {
         List<Company> companies = companyRepository.findAll();
-        List<CompanyDTO> companyDTOs = new ArrayList<>();
-        for (Company company : companies) {
-            companyDTOs.add(modelMapper.map(company,CompanyDTO.class));
-        }
-        return companyDTOs;
+        return companies;
+//        List<CompanyDTO> companyDTOs = new ArrayList<>();
+//        for (Company company : companies) {
+//            companyDTOs.add(modelMapper.map(company,CompanyDTO.class));
+//        }
+//        return companyDTOs;
     }
 
 
-    public CompanyDTO getCompanyById(int companyId) {
+    public Company getCompanyById(int companyId) {
         Company company = companyRepository.findById(companyId).orElse(null);
-        if (company != null) {
-            return modelMapper.map(company,CompanyDTO.class);
-        }
-        return null;
+//        if (company != null) {
+//            return modelMapper.map(company,CompanyDTO.class);
+//        }
+        return company;
     }
 
 

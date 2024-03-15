@@ -1,6 +1,7 @@
 package com.example.ATCProject.controller;
 
 import com.example.ATCProject.DTO.CompanyDTO;
+import com.example.ATCProject.Entity.Company;
 import com.example.ATCProject.Service.Impl.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +15,19 @@ public class CompanyController {
     private CompanyServiceImpl companyService;
 
     @PostMapping("/create")
-    public CompanyDTO createCompany(@RequestBody CompanyDTO companyDTO) {
+    public Company createCompany(@RequestBody CompanyDTO companyDTO) {
+
         return companyService.createCompany(companyDTO);
     }
 
     @GetMapping("/all")
-    public List<CompanyDTO> getAllCompanies() {
+    public List<Company> getAllCompanies() {
         return companyService.getAllCompanies();
     }
 
     @GetMapping("/{id}")
-    public CompanyDTO getCompanyById(@PathVariable int id) {
+    public Company getCompanyById(@PathVariable int id) {
+
         return companyService.getCompanyById(id);
     }
 

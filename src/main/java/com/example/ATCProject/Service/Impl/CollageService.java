@@ -22,6 +22,7 @@ public class CollageService {
                 .phoneNumber(collegeDTO.getPhoneNumber())
                 .build();
         college = collegeRepository.save(college);
+        collegeDTO.setId(college.getId());
         return collegeDTO;
     }
 
@@ -29,6 +30,7 @@ public class CollageService {
         College college = collegeRepository.findById(id).orElse(null);
         if (college != null) {
             return CollegeDTO.builder()
+                    .id(college.getId())
                     .name(college.getName())
                     .email(college.getEmail())
                     .phoneNumber(college.getPhoneNumber())
@@ -42,6 +44,7 @@ public class CollageService {
         List<CollegeDTO> collegeDTOs = new ArrayList<>();
         for (College college : colleges) {
             collegeDTOs.add(CollegeDTO.builder()
+                    .id(college.getId())
                     .name(college.getName())
                     .email(college.getEmail())
                     .phoneNumber(college.getPhoneNumber())

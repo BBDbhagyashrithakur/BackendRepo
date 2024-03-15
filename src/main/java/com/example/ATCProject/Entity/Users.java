@@ -17,8 +17,6 @@ public class Users {
     private String email;
     private String mobilenumber;
     private String role;
-
-    // Many users belong to one college
     @ManyToOne
     @JoinColumn(name = "college_id")
     private College college;

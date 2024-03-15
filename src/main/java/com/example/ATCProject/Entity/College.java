@@ -19,8 +19,6 @@ public class College {
     private String name;
     private String email;
     private String phoneNumber;
-
-    // One college has many users
     @OneToMany(mappedBy = "college")
     private List<Users> users;
 }

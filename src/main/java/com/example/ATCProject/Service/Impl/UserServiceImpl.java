@@ -38,7 +38,7 @@ public class UserServiceImpl {
             userRepository.save(user);
             return userDTO;
         }
-        return null; // College not found
+        return null;
     }
     public List<UserDTO> getAllUsers() {
         List<Users> users = userRepository.findAll();
