@@ -1,14 +1,11 @@
 package com.example.ATCProject.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
-
+@NoArgsConstructor
 @Builder
 public class UserDTO {
     private int id;

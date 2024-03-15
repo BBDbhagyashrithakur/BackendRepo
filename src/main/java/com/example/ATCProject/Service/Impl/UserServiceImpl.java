@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,20 +39,29 @@ public class UserServiceImpl {
         }
         return null;
     }
-    public List<Users> getAllUsers() {
+    public List<UserDTO> getAllUsers() {
         List<Users> users = userRepository.findAll();
 //        List<UserDTO> userDTOs = new ArrayList<>();
 //
 //        for (Users user : users) {
 //            userDTOs.add(modelMapper.map(user,UserDTO.class));
 //        }
-        return users;
+        List<UserDTO> userDTOS=new ArrayList<>();
+        for(Users u :users){
+            userDTOS.add(modelMapper.map(u,UserDTO.class));
+
+        }
+
+        return userDTOS;
     }
-    public Optional<Users> getUserById(int id) {
+    public UserDTO getUserById(int id) {
         Optional<Users> byId= userRepository.findById(id);
+        if(byId.isEmpty()){
+            System.out.println("user is not exits");
+            return  null;
+        }
+        return  modelMapper.map(byId.get(),UserDTO.class);
 
-
-        return byId;
     }
     public String deleteUser(int id) {
         userRepository.deleteById(id);
