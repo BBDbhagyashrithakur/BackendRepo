@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -23,12 +24,12 @@ public class UserController {
     }
 
     @GetMapping("/all")
-    public List<UserDTO> getAllUsers() {
+    public List<Users> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
-    public UserDTO getUserById(@PathVariable int id) {
+    public Optional<Users> getUserId(@PathVariable int id) {
         return userService.getUserById(id);
     }
 
