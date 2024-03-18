@@ -4,10 +4,13 @@ package com.example.ATCProject.Service.Impl;
 import com.example.ATCProject.DTO.UserDTO;
 import com.example.ATCProject.Entity.College;
 import com.example.ATCProject.Entity.Users;
+import com.example.ATCProject.Exception.CollegeNotFoundException;
+import com.example.ATCProject.Exception.UserNotFoundException;
 import com.example.ATCProject.Repository.CollageRepo;
 import com.example.ATCProject.Repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -31,7 +34,9 @@ public class UserServiceImpl {
                 .mobilenumber(userDTO.getMobilenumber())
                 .role(userDTO.getRole())
                 .build();
-        College college = collegeRepository.findById(userDTO.getCollegeId()).orElse(null);
+        College college = collegeRepository.findById(userDTO.getCollegeId())
+                .orElseThrow(() -> new CollegeNotFoundException("College not found with ID: " + userDTO.getCollegeId()));
+        user.setCollege(college);
         if (college != null) {
             user.setCollege(college);
             userRepository.save(user);
@@ -41,11 +46,6 @@ public class UserServiceImpl {
     }
     public List<UserDTO> getAllUsers() {
         List<Users> users = userRepository.findAll();
-//        List<UserDTO> userDTOs = new ArrayList<>();
-//
-//        for (Users user : users) {
-//            userDTOs.add(modelMapper.map(user,UserDTO.class));
-//        }
         List<UserDTO> userDTOS=new ArrayList<>();
         for(Users u :users){
             userDTOS.add(modelMapper.map(u,UserDTO.class));
@@ -57,15 +57,17 @@ public class UserServiceImpl {
     public UserDTO getUserById(int id) {
         Optional<Users> byId= userRepository.findById(id);
         if(byId.isEmpty()){
-            System.out.println("user is not exits");
-            return  null;
-        }
+          //  System.out.println("user is not exits");
+            throw new UserNotFoundException("User not found with ID: " + id);        }
         return  modelMapper.map(byId.get(),UserDTO.class);
 
     }
     public String deleteUser(int id) {
+        Optional<Users> userOptional = userRepository.findById(id);
+        if (userOptional.isEmpty()) {
+            throw new UserNotFoundException("User not found with ID: " + id);
+        }
         userRepository.deleteById(id);
-        return "delete User";
+        return "User deleted successfully";
     }
-
 }

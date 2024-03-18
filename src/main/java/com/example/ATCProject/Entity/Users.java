@@ -14,6 +14,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+     @Column(name = "email",nullable = false,unique = true)
     private String email;
     private String mobilenumber;
     private String role;

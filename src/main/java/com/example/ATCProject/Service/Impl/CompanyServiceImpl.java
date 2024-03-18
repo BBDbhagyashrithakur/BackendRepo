@@ -31,19 +31,13 @@ private ModelMapper modelMapper;
     public List<Company> getAllCompanies() {
         List<Company> companies = companyRepository.findAll();
         return companies;
-//        List<CompanyDTO> companyDTOs = new ArrayList<>();
-//        for (Company company : companies) {
-//            companyDTOs.add(modelMapper.map(company,CompanyDTO.class));
-//        }
-//        return companyDTOs;
+
     }
 
 
     public Company getCompanyById(int companyId) {
         Company company = companyRepository.findById(companyId).orElse(null);
-//        if (company != null) {
-//            return modelMapper.map(company,CompanyDTO.class);
-//        }
+
         return company;
     }
 

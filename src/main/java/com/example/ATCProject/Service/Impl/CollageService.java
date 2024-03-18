@@ -1,6 +1,7 @@
 package com.example.ATCProject.Service.Impl;
 
 import com.example.ATCProject.DTO.CollegeDTO;
+import com.example.ATCProject.Exception.CollegeNotFoundException;
 import com.example.ATCProject.Repository.CollageRepo;
 import com.example.ATCProject.Entity.College;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class CollageService {
     }
 
     public CollegeDTO findCollegeById(int id) {
-        College college = collegeRepository.findById(id).orElse(null);
+        College college = collegeRepository.findById(id).orElseThrow(() -> new CollegeNotFoundException("College not found with ID: " + id));
         if (college != null) {
             return CollegeDTO.builder()
                     .id(college.getId())

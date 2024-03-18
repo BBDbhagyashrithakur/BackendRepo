@@ -3,7 +3,10 @@ package com.example.ATCProject.controller;
 import com.example.ATCProject.DTO.CollegeDTO;
 import com.example.ATCProject.Service.Impl.CollageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -20,9 +23,15 @@ public class CollegeController {
     }
 
     @GetMapping("/{id}")
-    public CollegeDTO findCollegeById(@PathVariable int id) {
+    public ResponseEntity<CollegeDTO> findCollegeById(@PathVariable int id) {
 
-        return collageService.findCollegeById(id);
+      //  return collageService.findCollegeById(id);
+        try {
+            CollegeDTO collegeDTO = collageService.findCollegeById(id);
+            return new ResponseEntity<>(collegeDTO, HttpStatus.OK);
+        } catch (ResponseStatusException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "College not found", ex);
+        }
     }
 
     @GetMapping("/all")

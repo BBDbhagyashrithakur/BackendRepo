@@ -19,11 +19,11 @@ public class Company {
     private int company_Id;
     @Column( name ="company_name",nullable = false)
     private String company_name;
-    @Column( name ="email",nullable = false)
+    @Column( name ="email",nullable = false,unique = true)
     private String email;
     @Column( name ="phone_no")
     private String phone_no;
+
     @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
     private List<JobPost> jobpost=new ArrayList<>();
-
 }

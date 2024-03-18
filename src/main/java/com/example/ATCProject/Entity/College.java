@@ -17,6 +17,7 @@ public class College {
     private int id;
 
     private String name;
+    @Column(name = "email",nullable = false,unique = true)
     private String email;
     private String phoneNumber;
     @OneToMany(mappedBy = "college")

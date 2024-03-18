@@ -3,8 +3,6 @@ package com.example.ATCProject.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,24 +16,23 @@ import java.util.List;
 public class JobPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long job_Id;
-    @Column( name ="title",nullable = false)
-    private String title;
-    @Column( name ="description",nullable = false)
-    private String description;
-    @Column( name ="job_location",nullable = false)
-    private String job_location;
-    @Column( name ="created_date")
-    private LocalDateTime created_date;
-    @Column( name ="modified_date")
-    private Date modified_date;
+    private int job_Id;
 
-    @OneToMany(mappedBy = "jobpost",cascade = CascadeType.ALL)
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    @Column(name = "job_location", nullable = false)
+    private String job_location;
+
+
+    @OneToMany(mappedBy = "jobPost",cascade = CascadeType.ALL)
     private List<Application> applications=new ArrayList<>();
 
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "company_Id")
     private Company company;
-
 }
