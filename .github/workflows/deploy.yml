@@ -25,43 +25,43 @@ jobs:
           chmod +x mvnw
           ./mvnw package
 
-#      - name: Stop old running server
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: 34.245.39.104
-#          username: ec2-user
-#          key:
-#            -----BEGIN RSA PRIVATE KEY-----
-#            MIIEowIBAAKCAQEAnrLlDxtBk+bVqDGHdOk8gMUYF1VPrkg1unQN+Xpo4HJMZ8KK
-#            rNoZ/MOQRBd6O50E2e89LMp0MN8Ks/xWPoK8vhH1XYFgBEQ2boENF23J/5IJRr43
-#            n417BpFTC4ZnhydV+fgRZJiuwlNK/LgtqxU+rcLPCziBajcYaOnosiUnhgCUqLt8
-#            yzv7mfZQGR3KKSLznH0jCXiBHUw2rpeOn1zVwDdO9iNeIAFv+WiqbS878antMS1r
-#            NO6o30ZF57KRJWNUbh653h2Z+z0AP+3dagJ9cFPnkaHAA/wF+AFsZcP8CcYb4lY6
-#            lv0a6peM3WxnYuVdLxKnJleTFEWWXf4NvFrgkwIDAQABAoIBAHqPZDEvdoy3p+fW
-#            IGucuNol3L4gZ4IMSFovyJ8T9yzneLRlXN2zLoCzs5Wyn/asBBQfHBqcW/FmP4jS
-#            5vQt2X/ctKa7BKEm4PakeazPYEIc0UcuHhz9kbZ3wy/SY9/P9CkxeJU9CTIQS4gy
-#            4SoQJTDiky1yPRf/Zr2Xb9sssIJedXsShqQ+YpyRmcX0t/WBIT3LMhJc3SGU64PM
-#            whvFv5kgYIIXox21YvIRezM6+fijs0MZ3+O6z24Ls9pYXfHpIWvrsMBUkPpFETTo
-#            hHDN/4CyEAIBUqojYFMIMk7xfL14v9gISPfEd8ucKN47j+6wlKIqA/8sQ+sckiON
-#            zc02SwECgYEA30UR6aJwdFBwNdZX8XncUCidRVdPEOaqmVKpNoxof1uOWm8cvS1R
-#            jXYS7MOk1Ds17yivfu2kHcwY7ThMEW/y0BLXxhl0bQrt7B8hgui7Vs61h2R25Lnj
-#            iYIazumNDza5LHbWwUFBzz3x6m0fiCmT6fQwSd5m6gfSOeaejs8w44ECgYEAtfaW
-#            Or8zArZlXt/sDMK2nRCVfSvochufEzjG0Po/NDZCE9lk/prjT6bqbJWLp0dFIWt8
-#            dMkV9FzcetTWqIZ7E5AptWXl1unLQozrUmPt5BmfJBUGIdiWz+pRZIV8pBXvVZPE
-#            3VDeYpTmZQR8sHoIVIeBIkNxNCBSLKmhJtoA/hMCgYEAuiqnkv5FclcYGWwOjGUm
-#            FRioeocggGE14v6P5dIR2BAJlNKNThiZpbDMeutvZx+wCykLnHSeodHq/vIwS2Hj
-#            PyhXDvFuqPWyCW6zzKoue2WE684TbQiq95+qptkLK6JfqPm2fBHjw+BM9UHkRu8U
-#            TMG1+gIeIgo/etQXZdDRXQECgYBWFz/GtbWNv/xAIhONigZaU4FWwpJsgnMF5iPy
-#            taN3sYAb4gwthdysT92z2CFF2Kt1f2RX4NfZUKIkH1UcUNwkSl3hbD+NKfo4F3Iy
-#            /gKMnC62JJhNJStdXZB6zclF3Pbqd0p6J4u/+pDzFGdmG6abT60iJ+SEdBJM/Ui4
-#            mAZGLwKBgFC+LuM/FjPtMqYzQqVnNRqezrKyVOAmMFXEerM9M3lNCFAgIXBYnlSm
-#            Z5QbKZEyd33CiWOjax4jFzwEmW0bKhGJ/2FUu4Lh0C+bK/LMHINNff8OgUmWNlEo
-#            GMa7HnotykCHfjHGnZAFnKyQdF4Gy1yd2BYcLAF/gHl6Y7Slqi9G
-#            -----END RSA PRIVATE KEY-----
-#          script: |
-#            cd /home/ec2-user/online-job-portal-0.0.1-SNAPSHOT.jar/target
-#            nohup pkill -f online-job-portal-0.0.1-SNAPSHOT.jar > output.log 2>&1 &
-#            echo "Java process stopped."
+      - name: Stop old running server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 34.245.39.104
+          username: ec2-user
+          key:
+            -----BEGIN RSA PRIVATE KEY-----
+            MIIEowIBAAKCAQEAnrLlDxtBk+bVqDGHdOk8gMUYF1VPrkg1unQN+Xpo4HJMZ8KK
+            rNoZ/MOQRBd6O50E2e89LMp0MN8Ks/xWPoK8vhH1XYFgBEQ2boENF23J/5IJRr43
+            n417BpFTC4ZnhydV+fgRZJiuwlNK/LgtqxU+rcLPCziBajcYaOnosiUnhgCUqLt8
+            yzv7mfZQGR3KKSLznH0jCXiBHUw2rpeOn1zVwDdO9iNeIAFv+WiqbS878antMS1r
+            NO6o30ZF57KRJWNUbh653h2Z+z0AP+3dagJ9cFPnkaHAA/wF+AFsZcP8CcYb4lY6
+            lv0a6peM3WxnYuVdLxKnJleTFEWWXf4NvFrgkwIDAQABAoIBAHqPZDEvdoy3p+fW
+            IGucuNol3L4gZ4IMSFovyJ8T9yzneLRlXN2zLoCzs5Wyn/asBBQfHBqcW/FmP4jS
+            5vQt2X/ctKa7BKEm4PakeazPYEIc0UcuHhz9kbZ3wy/SY9/P9CkxeJU9CTIQS4gy
+            4SoQJTDiky1yPRf/Zr2Xb9sssIJedXsShqQ+YpyRmcX0t/WBIT3LMhJc3SGU64PM
+            whvFv5kgYIIXox21YvIRezM6+fijs0MZ3+O6z24Ls9pYXfHpIWvrsMBUkPpFETTo
+            hHDN/4CyEAIBUqojYFMIMk7xfL14v9gISPfEd8ucKN47j+6wlKIqA/8sQ+sckiON
+            zc02SwECgYEA30UR6aJwdFBwNdZX8XncUCidRVdPEOaqmVKpNoxof1uOWm8cvS1R
+            jXYS7MOk1Ds17yivfu2kHcwY7ThMEW/y0BLXxhl0bQrt7B8hgui7Vs61h2R25Lnj
+            iYIazumNDza5LHbWwUFBzz3x6m0fiCmT6fQwSd5m6gfSOeaejs8w44ECgYEAtfaW
+            Or8zArZlXt/sDMK2nRCVfSvochufEzjG0Po/NDZCE9lk/prjT6bqbJWLp0dFIWt8
+            dMkV9FzcetTWqIZ7E5AptWXl1unLQozrUmPt5BmfJBUGIdiWz+pRZIV8pBXvVZPE
+            3VDeYpTmZQR8sHoIVIeBIkNxNCBSLKmhJtoA/hMCgYEAuiqnkv5FclcYGWwOjGUm
+            FRioeocggGE14v6P5dIR2BAJlNKNThiZpbDMeutvZx+wCykLnHSeodHq/vIwS2Hj
+            PyhXDvFuqPWyCW6zzKoue2WE684TbQiq95+qptkLK6JfqPm2fBHjw+BM9UHkRu8U
+            TMG1+gIeIgo/etQXZdDRXQECgYBWFz/GtbWNv/xAIhONigZaU4FWwpJsgnMF5iPy
+            taN3sYAb4gwthdysT92z2CFF2Kt1f2RX4NfZUKIkH1UcUNwkSl3hbD+NKfo4F3Iy
+            /gKMnC62JJhNJStdXZB6zclF3Pbqd0p6J4u/+pDzFGdmG6abT60iJ+SEdBJM/Ui4
+            mAZGLwKBgFC+LuM/FjPtMqYzQqVnNRqezrKyVOAmMFXEerM9M3lNCFAgIXBYnlSm
+            Z5QbKZEyd33CiWOjax4jFzwEmW0bKhGJ/2FUu4Lh0C+bK/LMHINNff8OgUmWNlEo
+            GMa7HnotykCHfjHGnZAFnKyQdF4Gy1yd2BYcLAF/gHl6Y7Slqi9G
+            -----END RSA PRIVATE KEY-----
+          script: |
+            cd /home/ec2-user/online-job-portal-0.0.1-SNAPSHOT.jar/target
+            nohup pkill -f online-job-portal-0.0.1-SNAPSHOT.jar > output.log 2>&1 &
+            echo "Java process stopped."
 
 
       - name: Copy JAR file to EC2
