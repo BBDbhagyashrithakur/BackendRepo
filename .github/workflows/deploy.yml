@@ -42,7 +42,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/internshipforall:latest
 
-
+#ec2
       - name: Connect to EC2 instance
         uses: appleboy/ssh-action@master
         with:
