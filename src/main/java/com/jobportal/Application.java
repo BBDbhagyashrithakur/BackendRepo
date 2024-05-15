@@ -14,9 +14,9 @@ import com.jobportal.utility.Constants.ActiveStatus;
 import com.jobportal.utility.Constants.UserRole;
 
 @SpringBootApplication
-public class JobApplication implements CommandLineRunner {
+public class Application implements CommandLineRunner {
 
-	private final Logger LOG = LoggerFactory.getLogger(JobApplication.class);
+	private final Logger LOG = LoggerFactory.getLogger(Application.class);
 
 	@Autowired
 	private UserService userService;
@@ -25,7 +25,7 @@ public class JobApplication implements CommandLineRunner {
 	private PasswordEncoder passwordEncoder;
 
 	public static void main(String[] args) {
-		SpringApplication.run(JobApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	@Override
