@@ -13,7 +13,7 @@ public class CrossConfig implements  WebMvcConfigurer{
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("/**")
-                .allowedMethods("/**")
+                .allowedMethods("*")
                 .allowedHeaders("*");
     }
 //    public void addCorsMappings(CorsRegistry registry) {
