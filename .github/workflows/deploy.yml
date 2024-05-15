@@ -52,9 +52,5 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             echo "Connected to EC2 instance"
-            sudo docker ps -q --filter "publish=8080 xargs -r sudo docker stop
-            sudo docker ps -q --filter "publish=8080" | xargs -r sudo docker rm
-            sudo docker stop internshipforall || true # Stop all running containers, ignore errors if there are none
-            sudo docker rm internshipforall || true    # Remove all containers, ignore errors if there are none
             sudo docker pull bhagyashri01/internshipforall
             sudo docker run -d -p 8080:8080 bhagyashri01/internshipforall
