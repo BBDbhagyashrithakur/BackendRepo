@@ -92,22 +92,22 @@ public class JobResource {
 			return new ResponseEntity<CommonApiResponse>(response, HttpStatus.BAD_REQUEST);
 		}
 
-		User employer = this.userService.getUserById(request.getEmployerId());
-
-		if (employer == null) {
-			response.setResponseMessage("Employer not found");
-			response.setSuccess(false);
-
-			return new ResponseEntity<CommonApiResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-
-		job.setEmployer(employer);
-		job.setCategory(jobCategory);
-
-		// store company logo image in Image Folder and give name to store in database
-		String jobCompanyLogo = storageService.storeCompanyLogo(request.getCompanyLogo());
-
-		job.setCompanyLogo(jobCompanyLogo);
+//		User employer = this.userService.getUserById(request.getEmployerId());
+//
+//		if (employer == null) {
+//			response.setResponseMessage("Employer not found");
+//			response.setSuccess(false);
+//
+//			return new ResponseEntity<CommonApiResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+//		}
+//
+//		job.setEmployer(employer);
+//		job.setCategory(jobCategory);
+//
+//		// store company logo image in Image Folder and give name to store in database
+//		String jobCompanyLogo = storageService.storeCompanyLogo(request.getCompanyLogo());
+//
+//		job.setCompanyLogo(jobCompanyLogo);
 		job.setDatePosted(
 				String.valueOf(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 		job.setStatus(ActiveStatus.ACTIVE.value());

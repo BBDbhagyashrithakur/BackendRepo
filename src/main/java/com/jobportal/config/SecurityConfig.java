@@ -44,9 +44,9 @@ public class SecurityConfig {
 						auth -> auth.requestMatchers("/api/user/login", "/api/user/register").permitAll()
 						
 						// this APIs are only accessible by ADMIN
-						.requestMatchers("/api/user/admin/register","/api/job/category/add", "/api/job/category/update",
-								"/api/job/category/delete", "/api/user/fetch/role-wise", "/api/job/application/fetch/all")
-						.hasAuthority(UserRole.ROLE_ADMIN.value())
+//						.requestMatchers("/api/user/admin/register","/api/job/category/add", "/api/job/category/update",
+//								"/api/job/category/delete", "/api/user/fetch/role-wise", "/api/job/application/fetch/all")
+//						.hasAuthority(UserRole.ROLE_ADMIN.value())
 
 						// this APIs are only accessible by EMPLOYEE
 						.requestMatchers("/api/user/profile/add","/api/user/profile/skill/update", "/api/user/profile/work-experience/update",
