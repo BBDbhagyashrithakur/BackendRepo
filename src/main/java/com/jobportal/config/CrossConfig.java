@@ -12,8 +12,8 @@ public class CrossConfig implements  WebMvcConfigurer{
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://127.0.0.1:5500", "http://63.32.164.90:8080")
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedOrigins("/**")
+                .allowedMethods("/**")
                 .allowedHeaders("*");
     }
 //    public void addCorsMappings(CorsRegistry registry) {
