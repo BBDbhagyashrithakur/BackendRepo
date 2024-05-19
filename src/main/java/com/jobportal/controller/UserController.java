@@ -1,8 +1,8 @@
-package org.example.controller;
+package com.jobportal.controller;
 
-import org.example.Entity.Users;
-import org.example.Exception.UserNotFoundException;
-import org.example.Service.UserServiceImpl;
+import com.jobportal.Exception.UserNotFoundException;
+import com.jobportal.Entity.Users;
+import com.jobportal.Service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

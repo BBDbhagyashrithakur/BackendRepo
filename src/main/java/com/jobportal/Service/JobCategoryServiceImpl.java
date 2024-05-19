@@ -1,8 +1,8 @@
-package org.example.Service;
+package com.jobportal.Service;
 
-import org.example.Entity.JobCategory;
-import org.example.Exception.CategoryNotFoundException;
-import org.example.dao.JobCategoryDao;
+import com.jobportal.Entity.JobCategory;
+import com.jobportal.Exception.CategoryNotFoundException;
+import com.jobportal.dao.JobCategoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

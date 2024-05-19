@@ -1,8 +1,8 @@
 
-package org.example.controller;
+package com.jobportal.controller;
 
-import org.example.Entity.Job;
-import org.example.Service.JobService;
+import com.jobportal.Entity.Job;
+import com.jobportal.Service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

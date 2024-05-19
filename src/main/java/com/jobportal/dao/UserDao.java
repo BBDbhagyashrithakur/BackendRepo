@@ -1,6 +1,6 @@
-package org.example.dao;
+package com.jobportal.dao;
 
-import org.example.Entity.Users;
+import com.jobportal.Entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

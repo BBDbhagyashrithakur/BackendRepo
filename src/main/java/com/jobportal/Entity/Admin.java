@@ -1,5 +1,6 @@
-package org.example.Entity;
+package com.jobportal.Entity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,14 +12,13 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class JobCategory {
+public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
-
-    private String description;
+    @NotNull
+    private String email;
 
 }

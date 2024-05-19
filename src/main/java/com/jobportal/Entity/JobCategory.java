@@ -1,25 +1,24 @@
-package org.example.Entity;
-
+package com.jobportal.Entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 @Getter
 @Setter
-@Entity
-public class Users {
+public class JobCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String username;
+    private String name;
 
-    private String emailId;
+    private String description;
 
 }

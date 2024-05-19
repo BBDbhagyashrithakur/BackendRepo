@@ -1,6 +1,6 @@
-package org.example.Service;
+package com.jobportal.Service;
 
-import org.example.Entity.Job;
+import com.jobportal.Entity.Job;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-        package org.example.Service;
+        package com.jobportal.Service;
 
 
-import org.example.Entity.Users;
+import com.jobportal.Entity.Users;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package org.example.Service;
-import org.example.Entity.Users;
-import org.example.Exception.UserNotFoundException;
-import org.example.dao.UserDao;
+package com.jobportal.Service;
+import com.jobportal.Entity.Users;
+import com.jobportal.Exception.UserNotFoundException;
+import com.jobportal.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

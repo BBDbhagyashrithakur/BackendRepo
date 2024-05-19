@@ -1,6 +1,6 @@
-package org.example.controller;
-import org.example.Entity.JobCategory;
-import org.example.Service.JobCategoryService;
+package com.jobportal.controller;
+import com.jobportal.Entity.JobCategory;
+import com.jobportal.Service.JobCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

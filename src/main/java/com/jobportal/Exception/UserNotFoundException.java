@@ -1,4 +1,4 @@
-package org.example.Exception;
+package com.jobportal.Exception;
 
 public class UserNotFoundException extends RuntimeException {
 

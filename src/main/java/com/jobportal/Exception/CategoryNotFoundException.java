@@ -1,4 +1,4 @@
-package org.example.Exception;
+package com.jobportal.Exception;
 
 
 public class CategoryNotFoundException extends RuntimeException {
