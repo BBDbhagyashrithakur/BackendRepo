@@ -16,4 +16,10 @@ import java.util.List;
             String deleteUser(int id);
 
             Users createUser(Users users);
+//
+//            boolean addUser(Users user);
+//
+//            List<Users> getEmailId(String emailId);
+//
+//            List<Users> getUserByEmail(String emailId);
         }

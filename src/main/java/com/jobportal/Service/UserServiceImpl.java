@@ -44,6 +44,23 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+
+//    @Override
+//    public boolean addUser(Users user) {
+//        return false;
+//    }
+//
+//    @Override
+//    public List<Users> getEmailId(String emailId) {
+//        return null;
+//    }
+//
+//    @Override
+//    public List<Users> getUserByEmail(String emailId) {
+//        return null;
+//    }
+
+
 }
 
 
