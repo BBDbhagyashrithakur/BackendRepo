@@ -42,10 +42,7 @@ public class LoginController {
 
         // Extract the email field
         String emailId = jsonObject.getString("email");
-//        List<Users> user = userService.getEmailId(emailId);
-//        if (user.isEmpty()) {
-//            return new ResponseEntity<>("No user records found for the user ID: " + emailId, HttpStatus.NOT_FOUND);
-//        } else {
+
             Map<String, Object> responseBody = new HashMap<>();
             // Create a JWT token with the email as the subject
             String token = Jwts.builder()
@@ -53,32 +50,12 @@ public class LoginController {
                     .setExpiration(expirationDate)
                     .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                     .compact();
-//            responseBody.put("user", user);
+
             responseBody.put("token", token);
             return new ResponseEntity<>(responseBody, HttpStatus.OK);
 
-//      }
+
     }
 
-//    @PostMapping("/addUser")
-//    public ResponseEntity<String> addUser(@RequestBody Users user) {
-//        List<Users> users = userService.getUserByEmail(user.getEmailId());
-//        if (users.isEmpty()) {
-//            try {
-//                boolean success = userService.addUser(user);
-//
-//                if (success) {
-//                    return new ResponseEntity<>("User added successfully", HttpStatus.OK);
-//                } else {
-//                    return new ResponseEntity<>("Error adding User", HttpStatus.INTERNAL_SERVER_ERROR);
-//                }
-//            } catch (DataAccessException e) {
-//                return new ResponseEntity<>("Database error adding User", HttpStatus.INTERNAL_SERVER_ERROR);
-//            }
-//
-//        } else {
-//            return new ResponseEntity<>("Already exists please login" + user.getEmailId(), HttpStatus.CONFLICT);
-//        }
-//
-//    }
+
 }
